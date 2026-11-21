@@ -1,19 +1,12 @@
 ---
 layout: default
 ---
-<article class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {{ page.date | date: "%b %-d, %Y" }}
-      </time>
-    </p>
-  </header>
-
-  <div class="post-content">
-    {{ content }}
+<article class="block post">
+  <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+  <div>
+    <h1>{{ page.title | escape }}</h1>
+    <div class="prose">
+      {{ content }}
+    </div>
   </div>
-
 </article>

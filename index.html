@@ -1,18 +1,99 @@
 ---
 layout: default
-title: Home
 ---
+<section class="intro">
+  <h1 class="statement">I build machine learning and perception systems.</h1>
+  <p class="about">I'm a software engineer in AI research and development at Couchbase in Bangalore, where I designed the memory model behind Couchbase Agent Memory. Outside work, I train neural networks for robot learning and computer vision.</p>
+</section>
 
-<ul class="post-list">
-  {% for post in site.posts %}
-    <li>
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-      <h2>
-        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-      </h2>
-      {% if post.excerpt %}
-        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-      {% endif %}
-    </li>
-  {% endfor %}
-</ul>
+<section class="block" aria-labelledby="work">
+  <h2 id="work">Work</h2>
+  <div>
+    <div class="entry">
+      <h3>Couchbase</h3>
+      <p class="meta where">Bangalore, India</p>
+      <div class="roles">
+        <div class="role">
+          <h4>Software Engineer, Research and Development <time>Jul 2025 to present</time></h4>
+          <p>I designed the memory model and system architecture of Couchbase Agent Memory, the persistence layer that gives production AI agents state across sessions. It shipped in June 2026 as part of the Couchbase AI Data Plane.</p>
+          <p>I also build the evaluation frameworks we use to find where agents break. They score tool failure, context loss and out-of-order execution as separate failure classes instead of one accuracy number.</p>
+        </div>
+        <div class="role">
+          <h4>Software Engineering Intern, Research and Development <time>Jan 2025 to Jun 2025</time></h4>
+          <p>Built test harnesses for multi-step agent and retrieval-augmented generation pipelines that isolate failures across ingestion, chunking, retrieval and generation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="projects">
+  <h2 id="projects">Projects</h2>
+  <div>
+    <article class="entry">
+      <h3><a href="https://github.com/gouthamk16/lc-act">LC-ACT</a> <span>vision-language-action robot policy</span></h3>
+      <p>A language-conditioned action-chunking policy for a simulated Franka Panda arm, trained on all 40 LIBERO manipulation tasks. Each model has 8.0M parameters. A four-model ensemble reaches 97.15% task success over 2,000 rollouts, 0.3 points behind MINERVA.</p>
+      <p class="meta">PyTorch, MuJoCo, LIBERO, LeRobot</p>
+    </article>
+
+    <article class="entry">
+      <h3><a href="https://github.com/gouthamk16/Slam">slam2.0</a> <span>stereo visual SLAM from scratch</span></h3>
+      <p>Tracking, local mapping and loop closing on three threads, with my own sparse Levenberg-Marquardt bundle adjuster. Trajectory error is 2 to 17 cm on 10 of 11 EuRoC drone flights, matching or beating ORB-SLAM3 stereo on three of them, and 1.74 m over 3.7 km on KITTI 00.</p>
+      <p class="meta">Python, NumPy, OpenCV</p>
+    </article>
+
+    <article class="entry">
+      <h3><a href="https://github.com/gouthamk16/vision-fsd">vision-fsd</a> <span>perception and learned motion planning</span></h3>
+      <p>A neural motion planner trained on nuScenes LiDAR sweeps and HD-map rasters. One network detects vehicles and outputs a cost volume that ranks sampled trajectories. It reaches a 0.41% collision rate at 3 s on 983 validation samples, against 0.87% for the published reference on the full validation set.</p>
+      <p class="meta">PyTorch, nuScenes</p>
+    </article>
+
+    <article class="entry">
+      <h3><a href="https://github.com/gouthamk16/tiny-diffusion">TON-v1</a> <span>text diffusion language model</span></h3>
+      <p>A 77M-parameter diffusion transformer trained on 540M tokens, comparing the SEDD and MDLM objectives on one backbone. Generative perplexity under <span class="nb">GPT-2</span> fell from 350.5 to 24.75, and TensorRT engines generate 4.1 to 4.3 times faster than PyTorch.</p>
+      <p class="meta">PyTorch, TensorRT, ONNX</p>
+    </article>
+
+    <article class="entry">
+      <h3><a href="https://github.com/gouthamk16/miniXLA">miniXLA</a> <span>ML compiler that emits PTX</span></h3>
+      <p>A graph compiler in C with operator fusion, a PTX code generator, a CUDA Driver API runtime and reverse-mode autodiff. Its generated FP32 matrix multiply runs at 84.3% of cuBLAS at 2048 by 2048.</p>
+      <p class="meta">C, CUDA Driver API, PTX</p>
+    </article>
+
+    <article class="entry">
+      <h3><a href="https://github.com/gouthamk16/memboost">memboost</a> <span>mixed-precision LLM weight quantizer</span></h3>
+      <p>CUDA kernels for mixed 2-bit and 4-bit weight quantization, reimplementing arXiv:2311.16442 with Hessian-guided precision for each column group.</p>
+      <p class="meta">CUDA, C++, PyTorch</p>
+    </article>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="publication">
+  <h2 id="publication">Publication</h2>
+  <div>
+    <div class="entry">
+      <h3><a href="https://arxiv.org/abs/2608.14246">Polaris: Multi Agentic System for Conversational Enterprise Analytics</a></h3>
+      <p>V. H K, S. Sarkar, J. Kumar, G. Krishnan, T. Johari, A. Bharadwaj, S. Hegde. I contributed the Dynamic Task Coordination layer, which assigns tasks across specialized agents.</p>
+      <p class="meta">arXiv:2608.14246, 2026. Presented at an AAAI-26 workshop.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="education">
+  <h2 id="education">Education</h2>
+  <div>
+    <div class="entry">
+      <h3>Vellore Institute of Technology, Chennai</h3>
+      <p>B.Tech. in Computer Science and Engineering, specialization in AI and Machine Learning. CGPA 9.51 out of 10.</p>
+      <p class="meta">2021 to 2025</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="contact">
+  <h2 id="contact">Contact</h2>
+  <ul class="links">
+    <li><a href="https://www.linkedin.com/in/goutham4981">linkedin.com/in/goutham4981</a></li>
+    <li><a href="https://github.com/gouthamk16">github.com/gouthamk16</a></li>
+  </ul>
+</section>
