@@ -4,7 +4,7 @@ title: Blog
 ---
 <section class="intro">
   <h1 class="statement">Blog</h1>
-  <p class="about">I write about neural nets, AI and programming.</p>
+  <p class="about">I write about neural nets, AI and programming.{% if site.posts.size == 0 %} No posts yet.{% endif %}</p>
 </section>
 
 {% for post in site.posts %}
